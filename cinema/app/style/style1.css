@@ -1,0 +1,678 @@
+/********************************************** CORPS DE LA PAGE  **********************************************/
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url('chemin/vers/le/fichier/helvetica-neue.woff2') format('woff2'), /* pour les navigateurs modernes */
+         url('chemin/vers/le/fichier/helvetica-neue.woff') format('woff'); /* pour les anciens navigateurs */
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+*{
+    font-family: 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding:0;
+    scroll-behavior: smooth;
+    scroll-padding-top: 2rem;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+body{
+    /* color: #ED2939; */
+    color: #ffffff;
+    background-color: black;
+}
+
+section{
+    padding: 4.5rem 0 1.5rem;
+}
+
+a{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+
+
+/********************************************** EN-TETE **********************************************/
+
+header{
+    position:fixed;
+    width: 100%;
+    top:0;
+    right:0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 100px; 
+    transition: 0.5s;
+}
+
+header.shadow{
+    /*background: #e80051; ancienne couleur*/
+    background: rgb(6,9,11);
+    background: linear-gradient(180deg, rgba(6,9,11,1) 0%, rgba(6,9,11,0.8869748583026961) 57%, rgba(35,30,36,0.35476197314863445) 100%); 
+}
+
+header.shadow a{
+    color:rgb(255, 255, 255); 
+}
+
+
+.logo{
+    text-transform: uppercase;
+    display:flex;
+    align-items: center;
+    column-gap: 0.5rem;
+}
+
+.navbar{
+    display: flex;
+    column-gap: 5rem;
+}
+
+.navbar li{
+    position: relative;
+}
+.navbar a{
+    font-size: 1rem;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.navbar a::after{
+    content: "";
+    width: 0;
+    height:2px;
+    background: #ED2939;
+    position: absolute;
+    bottom:-4px;
+    left:0;
+    transition: 0.5s all linear;
+}
+
+.navbar a:hover::after{
+    width:100%
+}
+
+.user{
+    padding: 10px 20px;
+    background: #ED2939;
+    color: #ffffff;
+    border: none;
+    outline: none;
+    font-weight: 400;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.btn{
+    width: 150px;
+    height: 45px;
+    background: #ED2939;
+    color: #ffffff;
+    border: none;
+    outline: none;
+    font-weight: 400;
+    font-size: 1em;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: inset 0 0 0 0 #92222b;
+    transition: ease-out 0.4s;
+}
+
+
+.btn:hover{
+    box-shadow: inset 150px 0 0 0 #92222b;
+}
+
+/********************************************** SWIPPER FILM **********************************************/
+
+.conatiner{
+    width: 100%;
+    min-height: 640px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: rgba(10, 16, 40, 0.4);
+
+}
+
+.conatiner img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: -1;
+    filter:brightness(50%);
+}
+
+
+
+.swiper-pagination-bullet{
+    width:6px !important;
+    height: 6px !important;
+    border-radius: 0.2rem !important;
+    background: rgb(255, 255, 255) !important;
+    opacity: 1;
+}
+
+.swiper-pagination-bullet-active{
+    width: 1.5rem !important;
+    background: #ED2939 !important;
+}
+
+
+.menu-text{
+    z-index: 1000;
+    padding: 0 150px;
+
+}
+
+.menu-text span{
+    color: #ffffff;
+    font-weight: 500;
+    text-transform: uppercase ;
+}
+
+.menu-text h1{
+    color: #ffffff;
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+/********************************************** LISTE FILMS **********************************************/
+
+.titre{
+    max-width: 958px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    border-bottom: 1px solid #ED2939;
+}
+
+.film-container{
+    max-width: 958px;
+    margin-right: auto;
+    margin-left: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(180px, auto));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.box .box-img{
+    max-width: 100%;
+    height: 270px;
+    background-size: cover;
+    background-position: center;
+}
+
+.box .box-img img{
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 1;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+
+  
+.box .box-img img:hover{
+    transform: translateY(-10px);
+    transition: 0.2s;
+    opacity: 0.3;
+}
+
+
+.box h3{
+    font-size: 0.9rem;
+    font-weight:500;
+}
+
+.box span{
+    font-size:13px;
+}
+
+/********************************************** LISTE CINEMAS **********************************************/
+
+.liste-cinema{
+    margin-top: auto;
+    margin-right: auto;
+    margin-left: 50px;
+}
+
+.cinema{
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 2rem;
+    display: grid;    
+    color: #ffffff;
+} 
+
+
+.search-container {
+    position: relative;
+}
+  
+.searchbar {
+    padding-right: 30px;
+    width: 40%;
+    display:flex;
+    border-radius: 60px;
+    padding:10px 20px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    margin-bottom: 20px;
+    border: none;
+    outline: none;
+}
+  
+.search-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+}
+  
+.fa-search {
+    font-size: 18px;
+    color: #999;
+}
+
+
+.salle{
+    display: flex;
+    align-items: center;
+
+}
+
+.salle img{
+    max-width: 100%;
+    width:250px;
+    height:200px;
+    margin-right: 20px;
+    border-radius: 10px;
+    transition: transform 0.5s;
+}
+
+.salle img:hover{
+    transform: scale(1.1);
+    border-radius: 10px;
+}
+
+.cinema-info{
+    display: flex;
+    align-items: center;
+}
+
+.salle img:hover{
+    transition: 0.2s;
+}
+
+.cinema-name{
+    line-height: 1.5;
+}
+
+.salle span{
+    color: #969892;
+}
+
+.cinema-name h3 a{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.cinema-name h3 a:hover{
+    text-decoration: underline;
+}
+
+/********************************************** BAS DE PAGE **********************************************/
+
+.copyright{
+    width: 100%; 
+    text-align: center;
+    padding:25px 0;
+    background-color: #92222b;
+    color: #ffffff;
+    font-weight: 300;
+    font-size: 18px;
+    margin-top: 20px; 
+    
+}
+
+
+/********************************************** PAGES LOG-IN & SIGN UP **********************************************/
+
+.wrapper{
+    position: relative;
+    margin: auto;
+    width: 400px;
+    height: 440px;
+    background-color: #92222b;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper-register{
+    position: relative;
+    margin: auto;
+    width: 400px;
+    height: 600px;
+    background-color: #92222b;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper-register .form-box{
+    width: 100%;
+    padding: 40px;
+    margin: auto;
+}
+
+.wrapper .form-box{
+    width: 100%;
+    padding: 40px;
+    margin: auto;
+
+}
+
+.form-box h2{
+    font-size: 2em;
+    color: #ffffff;
+    text-align: center;
+}
+
+.input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #ffffff;
+    margin: 30px 0;
+}
+
+.input-box label{
+    position: absolute;
+    top:50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #ffffff;
+    font-weight: 500;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.input-box input:focus~label, .input-box input:valid~label{
+    top: -5px;
+}
+
+.input-box input{
+    width: 100%;
+    height:100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+}
+
+.input-box .icon{
+    position: absolute;
+    right:8px;
+    font-size: 1.2em;
+    color: #ffffff;
+}
+
+.btn-login{
+    width: 100%;
+    height: 45px;
+    background:#ED2939 ;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size:1em;
+    color: #ffffff;
+    font-weight: 500;
+    box-shadow: inset 0 0 0 0 #92222b;
+    transition: ease-out 0.4s;
+}
+
+.btn-login:hover{
+    box-shadow: inset 400px 0 0 0 #92222b;
+}   
+
+p{
+    text-align: center;
+    margin: auto;
+    color: #ffffff;
+
+}
+
+.login-register{
+    font-size: .9em;
+    color: #ffffff;
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px ;
+}
+
+.login-register p a{
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-register p a:hover{
+    text-decoration: underline;
+}
+
+
+/********************************************** ORDER MOVIE **********************************************/
+
+
+
+.movie-order{
+    position: relative;
+    min-height: 540px;
+    margin-top: 5rem !important;
+}
+
+.film-image{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: -1;
+    filter: brightness(50%);
+    
+}
+
+.film-info{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-size: cover;
+    background-position: center;
+    padding: 40px;
+}
+
+.film-info h2{
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+
+.film-title{
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+
+.tags{
+    display: flex;
+    align-items: center;
+    column-gap: 8px; 
+    margin: 1rem 0;
+}
+
+.tags span{
+    padding: 0px 4px;
+    color: #ffffff;
+    background-color: #969892;
+    border-radius: 4px;
+}
+
+.btn-play{
+    width: 45px;
+    height: 45px;
+    background: #ED2939;
+    color: #ffffff;
+    border: none;
+    outline: none;
+    font-weight: 400;
+    font-size: 1em;
+    border-radius: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;  
+}
+
+.btn-play:active{
+    background-color: #61161c;
+}
+
+.div{
+    margin-top: 10px;
+}
+
+.video-container{
+    position: fixed;
+    top:0;
+    left:0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background: hsl(234 10% 20% / 60%);
+    z-index: 400;
+}
+
+/*.video-container.show-video{
+    display: flex;
+}*/
+
+.video-box{
+    position: relative;
+    width: 82%;
+}
+
+.video-box #b-a{
+    width: 100%;
+    aspect-ratio: 16/9;
+}
+
+.close-video{
+    position : absolute; 
+    top: -3rem;
+    right: 0; 
+    font-size: 40px;
+    color: #ED2939;
+
+}
+
+.liste-seances{
+    margin: auto; 
+    margin-top: 5rem !important;
+}
+
+.liste-seances.seance{
+    display: flex;
+    align-items: center;
+    column-gap: 8px; 
+    margin: 1rem 0;
+}
+
+.subtitle{
+    max-width: 958px;
+    margin-left: 10px;
+    margin-right: auto;
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-transform:uppercase ;
+}
+
+.btn-disabled{
+    width: 150px;
+    height: 45px;
+    background: #d0babb;
+    color: #000000;
+    border: none; 
+    outline: none;
+    font-weight: 400;
+    font-size: 1em;
+    border-radius: 10px;
+    margin: auto;
+    margin-left: 40%;
+    margin-right: 40%;
+}
+
+
+.btn-active{
+    width: 150px;
+    height: 45px;
+    background: #ED2939;
+    color: #ffffff;
+    border: none; 
+    outline: none;
+    font-weight: 400;
+    font-size: 1em;
+    border-radius: 10px;
+    margin: auto;
+    margin-left: 40%;
+    margin-right: 40%;
+    cursor: pointer;
+    box-shadow: inset 0 0 0 0 #92222b;
+    transition: ease-out 0.4s;
+}
+
+.seance{
+    width: 100px;
+    height: 80px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: auto;
+    border: none; 
+    outline: none; 
+    font-weight: 400;
+    font-size: 1em;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #000000;
+    box-shadow: 2px 2px 5px rgba(218, 218, 218, 0.3);
+}
+
+
